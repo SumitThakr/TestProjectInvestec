@@ -1,3 +1,3 @@
 export const InitialState = {
-  name:'Sumit'
+  name: null
 }

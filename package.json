@@ -24,6 +24,7 @@
     "react-native-vector-icons": "^9.0.0",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
+    "rn-sliding-button": "^1.1.5",
     "typescript": "^4.5.4"
   },
   "devDependencies": {
