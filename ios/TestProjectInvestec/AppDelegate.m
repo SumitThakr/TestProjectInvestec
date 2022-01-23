@@ -31,13 +31,13 @@ static void InitializeFlipper(UIApplication *application) {
   InitializeFlipper(application);
 #endif
 
-- (BOOL) isEmulator {
-    #if TARGET_IPHONE_SIMULATOR
-        return YES;
-    #else
-        return NO;
-    #endif
-}
+//- (BOOL) isEmulator {
+//    #if TARGET_IPHONE_SIMULATOR
+//        return YES;
+//    #else
+//        return NO;
+//    #endif
+//}
 
 // RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(isEmulatorSync) {
 //     return @(self.isEmulator);
@@ -50,7 +50,7 @@ static void InitializeFlipper(UIApplication *application) {
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"TestProjectInvestec"
-                                            initialProperties:@{@"isSimulator": @(isSimulator)}];
+                                            initialProperties:nil];
 
   if (@available(iOS 13.0, *)) {
       rootView.backgroundColor = [UIColor systemBackgroundColor];

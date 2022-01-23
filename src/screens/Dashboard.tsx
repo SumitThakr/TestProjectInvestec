@@ -71,12 +71,14 @@ export const Dashboard: FunctionComponent<IProps> = (props) => {
                         slideDirection={SlideDirection.RIGHT}
                     >
                         <View style={styles.slidingViewStyle}>
+                            <View style={styles.slidingIconStyle}>
                             <FontAwesome
                                 name="diamond"
                                 color={Colors.white}
-                                style={styles.slidingIconStyle}
                                 size={16}
                             />
+                            </View>
+                            
                             <Text numberOfLines={1} style={styles.titleText}>
                                 {"Slide me to continue"}
                             </Text>
@@ -94,7 +96,7 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     contentContainerStyle: {
-        height: height - 80,
+        height:isIOS() ?height - 140 :height - 80,
         justifyContent: 'flex-end'
     },
     marginTop10: {
@@ -129,14 +131,11 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     slidingIconStyle: {
-        backgroundColor: Colors.lightBlue,
+        justifyContent:'center', 
         height: 50,
         width: 50,
-        textAlign: 'center',
-        textAlignVertical: 'center',
-        borderRadius: 8
+        backgroundColor: Colors.lightBlue,
+        borderRadius: 8,
+        alignItems:'center'
     }
-
 });
-
-//https://stackoverflow.com/questions/34727912/react-native-how-can-i-detect-if-my-code-is-running-in-the-simulator?rq=1

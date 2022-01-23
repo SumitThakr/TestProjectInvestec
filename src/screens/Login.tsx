@@ -1,5 +1,5 @@
-import React, { FunctionComponent, useState } from "react";
-import { View, ScrollView, StyleSheet } from "react-native";
+import React, { FunctionComponent, useEffect, useState } from "react";
+import { View, ScrollView, StyleSheet, NativeModules } from "react-native";
 import { CommomnStyle } from "../commonstyle";
 import { ButtonRN, Cus_Header, Label, TextInputRN } from "../components";
 import { ActionTypes, Colors } from "../constants";
@@ -7,13 +7,31 @@ import { AlertRN, height } from "../utils";
 import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 import { getNameType } from "../redux";
 import { useDispatch } from "react-redux";
+const { DeviceTypeModule,DeviceTypeIos } = NativeModules;
 export interface IProps {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>,
 }
 
 export const Login: FunctionComponent<IProps> = (props) => {
-    const [name, setName] = useState(null)
     const dispatch = useDispatch()
+    const [name, setName] = useState(null)
+    const [message,setMessage]= useState(null);
+
+    useEffect(() => {
+      getDeviceType()
+    }, [])
+
+    const getDeviceType = () => {
+            DeviceTypeModule?.isEmulator()?.then((isEmulator:boolean)=>{
+                console.log('isEmulator:', isEmulator)
+                setMessage('This is Emulator!')
+
+               })
+               DeviceTypeIos?.isSimulator()?.then((isSimulator:boolean)=>{
+                console.log('isSimulator:', isSimulator)
+                setMessage('This is Simulator!')
+               })   
+    }
     const validateData = (name: String) => {
         if (name == null) {
             AlertRN('Please enter name...!')
@@ -48,6 +66,10 @@ export const Login: FunctionComponent<IProps> = (props) => {
                         containerStyle={styles.containerStyle}
                         onPress={() => { validateData(name) }}
                     />
+                    <Label
+                    label={message}
+                    style={styles.textStyle}
+                />
                 </View>
             </ScrollView>
         </View>
@@ -69,5 +91,13 @@ const styles = StyleSheet.create({
         letterSpacing: 1
     },
     inputStyle: { marginTop: 5 },
-    containerStyle: { marginTop: 30 }
+    containerStyle: { marginTop: 30 },
+    textStyle: {
+        fontSize: 14,
+        fontWeight: '900',
+        color: Colors.white,
+        alignSelf: 'center',
+        letterSpacing: 1,
+        marginTop:50
+    }
 });

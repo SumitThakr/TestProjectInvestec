@@ -61,10 +61,10 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
         borderRadius: 8,
         paddingTop:10,
-        paddingBottom:10
+        paddingBottom:10,
     },
     containerStyle: {
         width: width - 40,
-        alignSelf: 'center'
+        alignSelf: 'center',
     }
 })
