@@ -7,7 +7,7 @@ import { AlertRN, height } from "../utils";
 import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 import { getNameType } from "../redux";
 import { useDispatch } from "react-redux";
-const { DeviceTypeModule,DeviceTypeIos } = NativeModules;
+const { DeviceTypeModule, DeviceTypeIos } = NativeModules;
 export interface IProps {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>,
 }
@@ -15,22 +15,22 @@ export interface IProps {
 export const Login: FunctionComponent<IProps> = (props) => {
     const dispatch = useDispatch()
     const [name, setName] = useState(null)
-    const [message,setMessage]= useState(null);
+    const [message, setMessage] = useState(null);
 
     useEffect(() => {
-      getDeviceType()
+        getDeviceType()
     }, [])
 
     const getDeviceType = () => {
-            DeviceTypeModule?.isEmulator()?.then((isEmulator:boolean)=>{
-                console.log('isEmulator:', isEmulator)
-                setMessage('This is Emulator!')
+        DeviceTypeModule?.isEmulator()?.then((isEmulator: boolean) => {
+            console.log('isEmulator:', isEmulator)
+            setMessage('This is Emulator!')
 
-               })
-               DeviceTypeIos?.isSimulator()?.then((isSimulator:boolean)=>{
-                console.log('isSimulator:', isSimulator)
-                setMessage('This is Simulator!')
-               })   
+        })
+        DeviceTypeIos?.isSimulator()?.then((isSimulator: boolean) => {
+            console.log('isSimulator:', isSimulator)
+            setMessage('This is Simulator!')
+        })
     }
     const validateData = (name: String) => {
         if (name == null) {
@@ -67,9 +67,9 @@ export const Login: FunctionComponent<IProps> = (props) => {
                         onPress={() => { validateData(name) }}
                     />
                     <Label
-                    label={message}
-                    style={styles.textStyle}
-                />
+                        label={message}
+                        style={styles.textStyle}
+                    />
                 </View>
             </ScrollView>
         </View>
@@ -98,6 +98,6 @@ const styles = StyleSheet.create({
         color: Colors.white,
         alignSelf: 'center',
         letterSpacing: 1,
-        marginTop:50
+        marginTop: 50
     }
 });

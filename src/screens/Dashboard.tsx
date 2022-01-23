@@ -72,13 +72,13 @@ export const Dashboard: FunctionComponent<IProps> = (props) => {
                     >
                         <View style={styles.slidingViewStyle}>
                             <View style={styles.slidingIconStyle}>
-                            <FontAwesome
-                                name="diamond"
-                                color={Colors.white}
-                                size={16}
-                            />
+                                <FontAwesome
+                                    name="diamond"
+                                    color={Colors.white}
+                                    size={16}
+                                />
                             </View>
-                            
+
                             <Text numberOfLines={1} style={styles.titleText}>
                                 {"Slide me to continue"}
                             </Text>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     contentContainerStyle: {
-        height:isIOS() ?height - 140 :height - 80,
+        height: isIOS() ? height - 140 : height - 80,
         justifyContent: 'flex-end'
     },
     marginTop10: {
@@ -131,11 +131,11 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     slidingIconStyle: {
-        justifyContent:'center', 
+        justifyContent: 'center',
         height: 50,
         width: 50,
         backgroundColor: Colors.lightBlue,
         borderRadius: 8,
-        alignItems:'center'
+        alignItems: 'center'
     }
 });

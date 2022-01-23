@@ -1,5 +1,4 @@
 import { Alert, Dimensions, Platform } from "react-native";
-
 export const IOS = 'ios';
 export const ANDROID = 'android';
 export const isIOS = (): boolean => Platform.OS === IOS;

@@ -1,15 +1,12 @@
-import React, { FunctionComponent, useEffect } from "react";
-import { ScrollView, View, Text, StyleSheet, NativeModules } from "react-native";
-
+import React, { FunctionComponent } from "react";
+import { ScrollView, View, StyleSheet } from "react-native";
 import { Label } from "../components";
 import { Colors } from "../constants";
 import { height } from "../utils";
 interface IProps {
-   
-}
 
+}
 export const SplashScreen: FunctionComponent<IProps> = (props) => {
-   
     return (
         <View style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.contentContainerStyle}>

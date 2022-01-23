@@ -1,30 +1,30 @@
-import React,{FunctionComponent} from 'react';
+import React, { FunctionComponent } from 'react';
 import { StyleProp, StyleSheet, TextInput, TextStyle } from 'react-native';
 import { Colors } from '../constants';
 import { isIOS } from '../utils';
 
 interface IProps {
-    onChangeText?:((text: string) => void) | undefined;
-    placeholder?: string | undefined;
-    style?: StyleProp<TextStyle> | undefined;
-    maxLength?: number | undefined;
-    multiline?: boolean | undefined;
-    value?: string | undefined;
-    editable?: boolean | undefined;
+  onChangeText?: ((text: string) => void) | undefined;
+  placeholder?: string | undefined;
+  style?: StyleProp<TextStyle> | undefined;
+  maxLength?: number | undefined;
+  multiline?: boolean | undefined;
+  value?: string | undefined;
+  editable?: boolean | undefined;
 }
- 
+
 export const TextInputRN: FunctionComponent<IProps> = (props) => {
-    return (
-      <TextInput
-        onChangeText={props.onChangeText}
-        placeholder={props.placeholder}
-        style={[styles.style, props.style]}
-        maxLength={props.maxLength}
-        multiline={props.multiline}
-        value={props.value}
-        editable={props.editable}
-      />
-    );
+  return (
+    <TextInput
+      onChangeText={props.onChangeText}
+      placeholder={props.placeholder}
+      style={[styles.style, props.style]}
+      maxLength={props.maxLength}
+      multiline={props.multiline}
+      value={props.value}
+      editable={props.editable}
+    />
+  );
 }
 
 const styles = StyleSheet.create({
